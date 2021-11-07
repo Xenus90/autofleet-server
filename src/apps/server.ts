@@ -5,7 +5,7 @@ import MainRouter from '../routers';
 
 export default class Server {
     static async start() {
-        const port = config.port;
+        const port = process.env.PORT || config.port;
         const app = express();
         app.use(middlewares());
         app.use('/', MainRouter.generateRouter());
